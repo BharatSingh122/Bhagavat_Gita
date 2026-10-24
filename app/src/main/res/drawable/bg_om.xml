@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Om emblem: saffron gradient disc with a golden ring (works at any view size) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <gradient android:angle="315" android:startColor="@color/saffron" android:endColor="@color/saffron_deep" />
+    <stroke android:width="@dimen/_2sdp" android:color="@color/gold" />
+</shape>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Item ids must match destination ids in navigation/nav_graph.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/homeFragment" android:icon="@drawable/ic_home" android:title="@string/nav_home" />
+    <item android:id="@+id/chaptersFragment" android:icon="@drawable/ic_book" android:title="@string/nav_gita" />
+    <item android:id="@+id/quotesFragment" android:icon="@drawable/ic_quote" android:title="@string/nav_quotes" />
+    <item android:id="@+id/moodFragment" android:icon="@drawable/ic_mood" android:title="@string/nav_moods" />
+    <item android:id="@+id/favoritesFragment" android:icon="@drawable/ic_favorite" android:title="@string/nav_favorites" />
+</menu>

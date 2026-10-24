@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#1E1412</color>
+    <color name="card">#2A1D1A</color>
+    <color name="card_soft">#30221F</color>
+    <color name="card_stroke">#45322D</color>
+    <color name="chip">#3A2925</color>
+    <color name="text_primary">#F3E7E1</color>
+    <color name="text_secondary">#D7C2B8</color>
+    <color name="text_muted">#A08C82</color>
+    <color name="sanskrit">#FFB77D</color>
+    <color name="favorite">#FF8A80</color>
+    <color name="nav_bar">#2A1D1A</color>
+</resources>

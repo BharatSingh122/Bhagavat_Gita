@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:background="@drawable/bg_om"
+        android:gravity="center"
+        android:text="ॐ"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/overline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_23sdp"
+        android:textAppearance="?attr/textAppearanceLabelLarge"
+        android:textColor="@color/sanskrit" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceHeadlineMedium"
+        android:textColor="@color/text_primary"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="@dimen/_53sdp"
+        android:layout_height="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/bg_gold_line" />
+
+    <TextView
+        android:id="@+id/body"
+        style="@style/Text.Body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/highlights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_17sdp"
+        android:background="@drawable/bg_date_badge"
+        android:lineSpacingExtra="6sp"
+        android:padding="@dimen/_12sdp"
+        android:textColor="@color/text_primary" />
+</LinearLayout>

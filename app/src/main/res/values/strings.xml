@@ -1,3 +1,43 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Divine Gita</string>
+    <!-- TODO: replace with your hosted privacy policy before publishing -->
+    <string name="privacy_policy_url">https://example.com/divine-gita/privacy</string>
+    <string name="share_app_message">Read the Bhagavad Gita, Anmol Vichar and Chalisa Sangrah daily on Divine Gita: https://play.google.com/store/apps/details?id=%1$s</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_gita">Gita</string>
+    <string name="nav_quotes">Quotes</string>
+    <string name="nav_moods">Moods</string>
+    <string name="nav_favorites">Favourite</string>
+
+    <string name="back">Back</string>
+    <string name="settings">Settings</string>
+    <string name="favorite">Favourite</string>
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="read_more">Read More</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="skip">Skip</string>
+    <string name="start_journey">Start Spiritual Journey</string>
+    <string name="try_again">Try again</string>
+    <string name="copied">Copied to clipboard</string>
+    <string name="added_favorite">Added to favourites</string>
+    <string name="removed_favorite">Removed from favourites</string>
+
+    <string name="sloka_of_day">Sloka of the Day</string>
+    <string name="preparing">Preparing today\'s shloka…</string>
+    <string name="chapter_verse">Chapter %1$d, Verse %2$d</string>
+    <string name="chapter_verse_short">अध्याय %1$d • श्लोक %2$d</string>
+    <string name="verses_count">%1$d shlok</string>
+    <string name="holy_shlokas">%1$d holy shlokas</string>
+    <string name="word_meanings">Word by Word Meaning • शब्दार्थ</string>
+    <string name="hindi_translation">Hindi Translation • हिन्दी अनुवाद</string>
+    <string name="english_translation">English Translation</string>
+    <string name="read_summary">Read summary</string>
+    <string name="show_less">Show less</string>
+
+    <string name="empty_fav_slokas">No favourite slokas yet.\nTap the heart on any shlok to keep it here.</string>
+    <string name="empty_fav_quotes">No favourite vichar yet.\nTap the heart on any quote to keep it here.</string>
+    <string name="chalisa_empty">This chalisa text has not been added yet.</string>
 </resources>
