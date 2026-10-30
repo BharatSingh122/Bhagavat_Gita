@@ -12,7 +12,7 @@
         android:animateLayoutChanges="true"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="@dimen/_13sdp">
+        android:padding="@dimen/_11sdp">
 
         <TextView
             android:id="@+id/name"
@@ -29,10 +29,10 @@
             android:textColor="@color/text_secondary" />
 
         <View
-            android:layout_width="@dimen/_53sdp"
+            android:layout_width="@dimen/_44sdp"
             android:layout_height="@dimen/_3sdp"
-            android:layout_marginTop="@dimen/_7sdp"
-            android:layout_marginBottom="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
             android:background="@drawable/bg_gold_line" />
 
         <TextView

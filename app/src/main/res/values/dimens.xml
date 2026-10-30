@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Type scale. Text uses fixed sp (not ssp) so it respects the user's font setting without growing on big screens. -->
+    <dimen name="text_micro">10sp</dimen>
+    <dimen name="text_caption">11sp</dimen>
+    <dimen name="text_label">12sp</dimen>
+    <dimen name="text_body">13sp</dimen>
+    <dimen name="text_body_large">14sp</dimen>
+    <dimen name="text_reading">15sp</dimen>
+    <dimen name="text_title">16sp</dimen>
+    <dimen name="text_headline_small">18sp</dimen>
+    <dimen name="text_headline">20sp</dimen>
+    <dimen name="text_display_small">22sp</dimen>
+
+    <!-- Large Om glyph sizes -->
+    <dimen name="text_om_small">15sp</dimen>
+    <dimen name="text_om_medium">26sp</dimen>
+    <dimen name="text_om_large">44sp</dimen>
+</resources>

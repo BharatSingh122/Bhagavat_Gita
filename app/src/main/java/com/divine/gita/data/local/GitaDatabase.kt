@@ -3,6 +3,8 @@ package com.divine.gita.data.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.divine.gita.data.local.dao.ChalisaDao
 import com.divine.gita.data.local.dao.ChapterDao
 import com.divine.gita.data.local.dao.MoodDao
@@ -24,7 +26,7 @@ import com.divine.gita.data.local.entity.SlokaEntity
         MoodEntity::class,
         MoodSlokaCrossRef::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = true,
 )
 @TypeConverters(Converters::class)
@@ -37,5 +39,20 @@ abstract class GitaDatabase : RoomDatabase() {
 
     companion object {
         const val NAME = "divine_gita.db"
+
+        /**
+         * v2 splits chalisa `verses` into `doha` / `chalisa` / `closing_doha`. The chalisa table only
+         * holds bundled content (no favourites), so it is recreated empty and reseeded from assets.
+         */
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("DROP TABLE IF EXISTS `chalisa`")
+                db.execSQL(
+                    "CREATE TABLE IF NOT EXISTS `chalisa` (`id` INTEGER NOT NULL, `deity` TEXT NOT NULL, " +
+                        "`title` TEXT NOT NULL, `doha` TEXT NOT NULL, `chalisa` TEXT NOT NULL, " +
+                        "`closing_doha` TEXT NOT NULL, PRIMARY KEY(`id`))"
+                )
+            }
+        }
     }
 }

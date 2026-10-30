@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,8 +25,10 @@ import com.divine.gita.domain.model.TranslationLanguage
 import com.divine.gita.domain.repository.GitaRepository
 import com.divine.gita.domain.repository.PreferencesRepository
 import com.divine.gita.ui.common.SlokaAdapter
+import com.divine.gita.ui.common.animateItemsOnFirstLoad
 import com.divine.gita.ui.common.appViewModels
 import com.divine.gita.ui.common.collectWhileStarted
+import com.divine.gita.ui.common.navigateTo
 import com.divine.gita.ui.common.setupToolbar
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -48,7 +49,8 @@ class ChaptersFragment : Fragment(R.layout.fragment_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val b = FragmentListBinding.bind(view)
         setupToolbar(b.toolbar, "Bhagavad Gita", "18 Adhyay • 700 Shlok", showBack = false)
-        val adapter = ChapterAdapter { findNavController().navigate(R.id.chapterDetailFragment, bundleOf("chapterNumber" to it.number)) }
+        val adapter = ChapterAdapter { navigateTo(R.id.chapterDetailFragment, bundleOf("chapterNumber" to it.number)) }
+        b.recycler.animateItemsOnFirstLoad()
         b.recycler.layoutManager = LinearLayoutManager(requireContext())
         b.recycler.adapter = adapter
         collectWhileStarted(viewModel.chapters) { list ->
@@ -117,9 +119,10 @@ class ChapterDetailFragment : Fragment(R.layout.fragment_list) {
         setupToolbar(b.toolbar, "Chapter")
         val header = ChapterHeaderAdapter()
         val slokas = SlokaAdapter(
-            onClick = { findNavController().navigate(R.id.slokaDetailFragment, bundleOf("slokaId" to it.id)) },
+            onClick = { navigateTo(R.id.slokaDetailFragment, bundleOf("slokaId" to it.id)) },
             onToggleFavorite = viewModel::toggleFavorite,
         )
+        b.recycler.animateItemsOnFirstLoad()
         b.recycler.layoutManager = LinearLayoutManager(requireContext())
         b.recycler.adapter = ConcatAdapter(header, slokas)
 

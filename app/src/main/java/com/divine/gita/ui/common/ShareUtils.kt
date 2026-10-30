@@ -59,7 +59,10 @@ object ShareFormatter {
 
     fun chalisa(chalisa: Chalisa): String = buildString {
         appendLine("॥ ${chalisa.title} ॥"); appendLine()
-        chalisa.verses.forEach { appendLine(it) }
-        appendLine(); append("— Divine Gita")
+        listOf(chalisa.doha, chalisa.chalisa, chalisa.closingDoha).filter { it.isNotEmpty() }.forEach { part ->
+            part.forEach { appendLine(it) }
+            appendLine()
+        }
+        append("— Divine Gita")
     }
 }

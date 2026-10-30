@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bottom-tab switch: Material fade-through (old fades out, new fades + scales in) -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/linear_out_slow_in"
+    android:shareInterpolator="true">
+    <scale android:duration="260" android:startOffset="90"
+        android:fromXScale="0.94" android:toXScale="1"
+        android:fromYScale="0.94" android:toYScale="1"
+        android:pivotX="50%" android:pivotY="50%" />
+    <alpha android:duration="260" android:startOffset="90" android:fromAlpha="0" android:toAlpha="1" />
+</set>

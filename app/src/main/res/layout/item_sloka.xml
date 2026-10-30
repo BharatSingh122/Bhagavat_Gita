@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/_13sdp">
+        android:padding="@dimen/_11sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,17 +42,17 @@
             style="@style/Text.Sanskrit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:ellipsize="end"
             android:maxLines="4"
-            android:textSize="17sp" />
+            android:textSize="@dimen/text_reading" />
 
         <TextView
             android:id="@+id/translation"
             style="@style/Text.Body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_6sdp"
             android:ellipsize="end"
             android:maxLines="3" />
     </LinearLayout>

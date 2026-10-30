@@ -44,6 +44,13 @@ class MainActivity : AppCompatActivity() {
                 navController.navigate(item.itemId, null, navOptions {
                     launchSingleTop = true
                     restoreState = true
+                    // Material fade-through between tabs
+                    anim {
+                        enter = R.anim.fade_through_enter
+                        exit = R.anim.fade_through_exit
+                        popEnter = R.anim.fade_through_enter
+                        popExit = R.anim.fade_through_exit
+                    }
                     // Home is the root of the back stack once splash/onboarding are gone.
                     popUpTo(R.id.homeFragment) { saveState = true }
                 })

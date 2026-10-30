@@ -4,25 +4,25 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_8sdp">
+    android:layout_marginTop="@dimen/_7sdp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:minHeight="@dimen/_53sdp"
+        android:minHeight="@dimen/_44sdp"
         android:orientation="horizontal"
-        android:padding="@dimen/_12sdp">
+        android:padding="@dimen/_10sdp">
 
         <FrameLayout
-            android:layout_width="@dimen/_37sdp"
-            android:layout_height="@dimen/_37sdp"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
             android:background="@drawable/bg_circle_soft">
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
                 android:layout_gravity="center"
                 android:importantForAccessibility="no"
                 app:tint="@color/saffron_deep" />
@@ -40,7 +40,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_9sdp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -54,6 +54,7 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceTitleSmall"
                     android:textColor="@color/text_primary"
                     android:textStyle="bold" />
 
@@ -62,7 +63,7 @@
                     style="@style/Text.Pill"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
                     android:visibility="gone" />
             </LinearLayout>
 
@@ -71,12 +72,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_caption" />
         </LinearLayout>
 
         <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
             android:importantForAccessibility="no"
             android:src="@drawable/ic_chevron_right"
             app:tint="@color/text_muted" />

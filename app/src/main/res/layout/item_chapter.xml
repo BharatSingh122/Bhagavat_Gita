@@ -9,22 +9,22 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/_12sdp">
+        android:padding="@dimen/_10sdp">
 
         <TextView
             android:id="@+id/number"
-            android:layout_width="@dimen/_43sdp"
-            android:layout_height="@dimen/_43sdp"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
             android:background="@drawable/bg_chapter_number"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_title"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -40,6 +40,7 @@
                 android:id="@+id/translation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceTitleSmall"
                 android:textColor="@color/text_primary"
                 android:textStyle="bold" />
 
@@ -50,7 +51,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_caption" />
         </LinearLayout>
 
         <TextView

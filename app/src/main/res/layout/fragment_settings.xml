@@ -19,24 +19,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/_13sdp">
+            android:padding="@dimen/_11sdp">
 
             <TextView
-                android:layout_width="@dimen/_87sdp"
-                android:layout_height="@dimen/_87sdp"
+                android:layout_width="@dimen/_68sdp"
+                android:layout_height="@dimen/_68sdp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/bg_om"
                 android:gravity="center"
                 android:text="ॐ"
                 android:textColor="@color/white"
-                android:textSize="34sp"
+                android:textSize="@dimen/text_om_medium"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_6sdp"
                 android:text="श्रीमद् भगवद् गीता"
                 android:textAppearance="?attr/textAppearanceTitleLarge"
                 android:textColor="@color/sanskrit" />
@@ -47,13 +47,13 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Eternal Wisdom • Daily Guidance"
                 android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_caption" />
 
             <TextView
                 style="@style/Text.Overline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_17sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="Daily Experience" />
 
             <include android:id="@+id/rowLanguage" layout="@layout/view_settings_row" />
@@ -63,7 +63,7 @@
                 style="@style/Text.Overline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_17sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="Community &amp; Seva" />
 
             <include android:id="@+id/rowRate" layout="@layout/view_settings_row" />
@@ -73,7 +73,7 @@
                 style="@style/Text.Overline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_17sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:text="Trust &amp; Legal" />
 
             <include android:id="@+id/rowPrivacy" layout="@layout/view_settings_row" />
@@ -82,7 +82,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_17sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 app:cardBackgroundColor="@color/card_soft">
 
                 <LinearLayout
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
-                    android:padding="@dimen/_13sdp">
+                    android:padding="@dimen/_11sdp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -105,13 +105,13 @@
                         android:gravity="center"
                         android:text="May all beings everywhere be happy and free from suffering."
                         android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_caption" />
 
                     <TextView
                         android:id="@+id/version"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_7sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:textColor="@color/saffron_deep"
                         android:textStyle="bold" />
                 </LinearLayout>

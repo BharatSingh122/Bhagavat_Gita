@@ -25,7 +25,8 @@ class AppContainer(context: Context) {
 
     val database: GitaDatabase by lazy {
         Room.databaseBuilder(appContext, GitaDatabase::class.java, GitaDatabase.NAME)
-            // v1 ships bundled content + favourites. Add real Migrations before bumping the version.
+            // Bundled content + favourites. Add a real Migration before bumping the version.
+            .addMigrations(GitaDatabase.MIGRATION_1_2)
             .fallbackToDestructiveMigrationOnDowngrade(dropAllTables = true)
             .build()
     }

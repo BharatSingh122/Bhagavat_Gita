@@ -15,6 +15,7 @@ import com.divine.gita.domain.repository.QuoteRepository
 import com.divine.gita.ui.common.IntentUtils
 import com.divine.gita.ui.common.QuoteAdapter
 import com.divine.gita.ui.common.ShareFormatter
+import com.divine.gita.ui.common.animateItemsOnFirstLoad
 import com.divine.gita.ui.common.appViewModels
 import com.divine.gita.ui.common.collectWhileStarted
 import com.divine.gita.ui.common.copyToClipboard
@@ -70,6 +71,7 @@ class QuotesFragment : Fragment(R.layout.fragment_tabbed_list) {
             onCopy = { requireContext().copyToClipboard(ShareFormatter.quote(it), b.root) },
             onShare = { IntentUtils.shareText(requireContext(), ShareFormatter.quote(it)) },
         )
+        b.recycler.animateItemsOnFirstLoad()
         b.recycler.layoutManager = LinearLayoutManager(requireContext())
         b.recycler.adapter = adapter
 

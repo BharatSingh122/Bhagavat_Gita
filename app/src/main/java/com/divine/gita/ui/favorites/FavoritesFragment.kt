@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.divine.gita.R
 import com.divine.gita.databinding.FragmentTabbedListBinding
@@ -22,8 +21,10 @@ import com.divine.gita.ui.common.IntentUtils
 import com.divine.gita.ui.common.QuoteAdapter
 import com.divine.gita.ui.common.ShareFormatter
 import com.divine.gita.ui.common.SlokaAdapter
+import com.divine.gita.ui.common.animateItemsOnFirstLoad
 import com.divine.gita.ui.common.appViewModels
 import com.divine.gita.ui.common.collectWhileStarted
+import com.divine.gita.ui.common.navigateTo
 import com.divine.gita.ui.common.copyToClipboard
 import com.divine.gita.ui.common.setupToolbar
 import com.google.android.material.tabs.TabLayout
@@ -72,7 +73,7 @@ class FavoritesFragment : Fragment(R.layout.fragment_tabbed_list) {
         setupToolbar(b.toolbar, "Favourites", "Saved with devotion", showBack = false)
 
         val slokaAdapter = SlokaAdapter(
-            onClick = { findNavController().navigate(R.id.slokaDetailFragment, bundleOf("slokaId" to it.id)) },
+            onClick = { navigateTo(R.id.slokaDetailFragment, bundleOf("slokaId" to it.id)) },
             onToggleFavorite = viewModel::removeSloka,
         )
         val quoteAdapter = QuoteAdapter(
@@ -81,6 +82,7 @@ class FavoritesFragment : Fragment(R.layout.fragment_tabbed_list) {
             onCopy = { requireContext().copyToClipboard(ShareFormatter.quote(it), b.root) },
             onShare = { IntentUtils.shareText(requireContext(), ShareFormatter.quote(it)) },
         )
+        b.recycler.animateItemsOnFirstLoad()
         b.recycler.layoutManager = LinearLayoutManager(requireContext())
 
         b.tabs.tabMode = TabLayout.MODE_FIXED

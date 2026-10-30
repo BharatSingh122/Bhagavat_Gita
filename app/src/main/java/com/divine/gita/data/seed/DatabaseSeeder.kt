@@ -94,7 +94,9 @@ class DatabaseSeeder(
                 id = it.getInt("id"),
                 deity = it.getString("deity"),
                 title = it.getString("title"),
-                verses = it.getJSONArray("verses").strings(),
+                doha = it.optJSONArray("doha")?.strings().orEmpty(),
+                chalisa = it.optJSONArray("chalisa")?.strings().orEmpty(),
+                closingDoha = it.optJSONArray("closingDoha")?.strings().orEmpty(),
             )
         })
     }

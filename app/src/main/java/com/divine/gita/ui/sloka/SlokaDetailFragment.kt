@@ -108,6 +108,13 @@ class SlokaDetailFragment : Fragment(R.layout.fragment_sloka_detail) {
             if (renderedId != sloka.id) {
                 renderWordMeanings(b, sloka.wordMeanings)
                 b.scroll.scrollTo(0, 0)
+                // Previous/next: soft fade-up so the verse change doesn't feel like a jump.
+                if (renderedId != null) {
+                    b.scroll.alpha = 0f
+                    b.scroll.translationY = resources.displayMetrics.density * 16
+                    b.scroll.animate().alpha(1f).translationY(0f).setDuration(260)
+                        .setInterpolator(android.view.animation.DecelerateInterpolator()).start()
+                }
                 renderedId = sloka.id
             }
 

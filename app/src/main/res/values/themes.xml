@@ -20,6 +20,23 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="toolbarStyle">@style/Widget.DivineGita.Toolbar</item>
         <item name="materialCardViewStyle">@style/Widget.DivineGita.Card</item>
+        <item name="android:textViewStyle">@style/Widget.DivineGita.TextView</item>
+        <item name="tabStyle">@style/Widget.DivineGita.Tabs</item>
+        <item name="chipStyle">@style/Widget.DivineGita.Chip</item>
+
+        <!-- Compact type scale: the Material 3 defaults read too large on phones -->
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.DivineGita.DisplaySmall</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.DivineGita.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.DivineGita.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.DivineGita.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.DivineGita.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.DivineGita.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.DivineGita.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.DivineGita.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.DivineGita.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.DivineGita.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.DivineGita.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.DivineGita.LabelSmall</item>
     </style>
 
     <style name="Theme.DivineGita" parent="Base.Theme.DivineGita" />
@@ -31,6 +48,8 @@
         <item name="android:background">@color/background</item>
         <item name="titleTextColor">@color/text_primary</item>
         <item name="subtitleTextColor">@color/saffron_deep</item>
+        <item name="titleTextAppearance">@style/TextAppearance.DivineGita.ToolbarTitle</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.DivineGita.ToolbarSubtitle</item>
         <item name="titleCentered">true</item>
         <item name="subtitleCentered">true</item>
         <item name="navigationIconTint">@color/text_primary</item>
@@ -38,38 +57,54 @@
 
     <style name="Widget.DivineGita.Card" parent="Widget.Material3.CardView.Elevated">
         <item name="cardBackgroundColor">@color/card</item>
-        <item name="cardCornerRadius">@dimen/_17sdp</item>
-        <item name="cardElevation">@dimen/_3sdp</item>
+        <item name="cardCornerRadius">@dimen/_14sdp</item>
+        <item name="cardElevation">@dimen/_1sdp</item>
         <item name="strokeColor">@color/card_stroke</item>
         <item name="strokeWidth">@dimen/_1sdp</item>
     </style>
 
+    <style name="Widget.DivineGita.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.DivineGita.BodyMedium</item>
+    </style>
+
+    <style name="Widget.DivineGita.Tabs" parent="Widget.Material3.TabLayout">
+        <item name="tabTextAppearance">@style/TextAppearance.DivineGita.LabelLarge</item>
+    </style>
+
+    <style name="Widget.DivineGita.Chip" parent="Widget.Material3.Chip.Assist">
+        <item name="android:textAppearance">@style/TextAppearance.DivineGita.LabelMedium</item>
+    </style>
+
     <!-- Text styles -->
     <style name="Text.Sanskrit" parent="TextAppearance.Material3.BodyLarge">
-        <item name="android:textSize">19sp</item>
+        <item name="android:textSize">@dimen/text_headline_small</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:textColor">@color/sanskrit</item>
     </style>
     <style name="Text.Overline" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/text_micro</item>
         <item name="android:textColor">@color/saffron_deep</item>
         <item name="android:letterSpacing">0.15</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>
     <style name="Text.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_headline_small</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textStyle">bold</item>
     </style>
     <style name="Text.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_body</item>
         <item name="android:textColor">@color/text_secondary</item>
-        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:lineSpacingExtra">3sp</item>
     </style>
     <style name="Text.Pill" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/text_micro</item>
         <item name="android:textColor">@color/saffron_deep</item>
         <item name="android:background">@drawable/bg_pill</item>
-        <item name="android:paddingStart">@dimen/_8sdp</item>
-        <item name="android:paddingEnd">@dimen/_8sdp</item>
+        <item name="android:paddingStart">@dimen/_7sdp</item>
+        <item name="android:paddingEnd">@dimen/_7sdp</item>
         <item name="android:paddingTop">@dimen/_3sdp</item>
         <item name="android:paddingBottom">@dimen/_3sdp</item>
         <item name="android:textStyle">bold</item>
@@ -83,6 +118,51 @@
         <item name="backgroundTint">@color/saffron</item>
         <item name="android:textColor">@color/white</item>
         <item name="iconTint">@color/white</item>
-        <item name="cornerRadius">@dimen/_20sdp</item>
+        <item name="cornerRadius">@dimen/_18sdp</item>
+    </style>
+
+    <!-- Type scale (sizes live in dimens.xml) -->
+    <style name="TextAppearance.DivineGita.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textSize">@dimen/text_display_small</item>
+    </style>
+    <style name="TextAppearance.DivineGita.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">@dimen/text_display_small</item>
+    </style>
+    <style name="TextAppearance.DivineGita.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">@dimen/text_headline</item>
+    </style>
+    <style name="TextAppearance.DivineGita.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_headline_small</item>
+    </style>
+    <style name="TextAppearance.DivineGita.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_reading</item>
+    </style>
+    <style name="TextAppearance.DivineGita.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">@dimen/text_body_large</item>
+    </style>
+    <style name="TextAppearance.DivineGita.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">@dimen/text_body_large</item>
+    </style>
+    <style name="TextAppearance.DivineGita.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+    <style name="TextAppearance.DivineGita.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_caption</item>
+    </style>
+    <style name="TextAppearance.DivineGita.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+    <style name="TextAppearance.DivineGita.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">@dimen/text_caption</item>
+    </style>
+    <style name="TextAppearance.DivineGita.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/text_micro</item>
+    </style>
+    <style name="TextAppearance.DivineGita.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.DivineGita.ToolbarSubtitle" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_caption</item>
     </style>
 </resources>

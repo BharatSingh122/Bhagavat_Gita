@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/_13sdp">
+            android:padding="@dimen/_11sdp">
 
             <!-- Sanskrit hero -->
             <com.google.android.material.card.MaterialCardView
@@ -38,7 +38,7 @@
                     android:background="@drawable/bg_sanskrit_hero"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
-                    android:padding="@dimen/_17sdp">
+                    android:padding="@dimen/_14sdp">
 
                     <TextView
                         android:id="@+id/reference"
@@ -52,15 +52,15 @@
                         style="@style/Text.Sanskrit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
                         android:gravity="center"
                         android:textIsSelectable="true" />
 
                     <View
-                        android:layout_width="@dimen/_53sdp"
+                        android:layout_width="@dimen/_44sdp"
                         android:layout_height="@dimen/_3sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:layout_marginBottom="@dimen/_9sdp"
                         android:background="@drawable/bg_gold_line" />
 
                     <TextView
@@ -79,13 +79,13 @@
                 android:id="@+id/wordsCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12sdp">
+                android:layout_marginTop="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/_13sdp">
+                    android:padding="@dimen/_11sdp">
 
                     <TextView
                         style="@style/Text.Overline"
@@ -97,8 +97,8 @@
                         android:id="@+id/wordChips"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        app:chipSpacingVertical="@dimen/_5sdp" />
+                        android:layout_marginTop="@dimen/_7sdp"
+                        app:chipSpacingVertical="@dimen/_4sdp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -107,13 +107,13 @@
                 android:id="@+id/hindiCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12sdp">
+                android:layout_marginTop="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/_13sdp">
+                    android:padding="@dimen/_11sdp">
 
                     <TextView
                         style="@style/Text.Overline"
@@ -125,11 +125,11 @@
                         android:id="@+id/hindi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
                         android:lineSpacingExtra="6sp"
                         android:textColor="@color/text_primary"
                         android:textIsSelectable="true"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_reading" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -138,13 +138,13 @@
                 android:id="@+id/englishCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12sdp">
+                android:layout_marginTop="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/_13sdp">
+                    android:padding="@dimen/_11sdp">
 
                     <TextView
                         style="@style/Text.Overline"
@@ -156,18 +156,18 @@
                         android:id="@+id/english"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_7sdp"
                         android:lineSpacingExtra="6sp"
                         android:textColor="@color/text_primary"
                         android:textIsSelectable="true"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_reading" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_11sdp"
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
@@ -175,7 +175,7 @@
                     style="@style/Widget.Material3.Button.TonalButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
                     android:layout_weight="1"
                     android:text="@string/previous"
                     app:icon="@drawable/ic_chevron_left" />
@@ -185,7 +185,7 @@
                     style="@style/Widget.Material3.Button.TonalButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_4sdp"
                     android:layout_weight="1"
                     android:text="@string/next"
                     app:icon="@drawable/ic_chevron_right"

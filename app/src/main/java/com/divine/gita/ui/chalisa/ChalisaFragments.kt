@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,8 +22,10 @@ import com.divine.gita.domain.model.Chalisa
 import com.divine.gita.domain.repository.ChalisaRepository
 import com.divine.gita.ui.common.IntentUtils
 import com.divine.gita.ui.common.ShareFormatter
+import com.divine.gita.ui.common.animateItemsOnFirstLoad
 import com.divine.gita.ui.common.appViewModels
 import com.divine.gita.ui.common.collectWhileStarted
+import com.divine.gita.ui.common.navigateTo
 import com.divine.gita.ui.common.copyToClipboard
 import com.divine.gita.ui.common.setupToolbar
 import kotlinx.coroutines.flow.SharingStarted
@@ -45,7 +46,8 @@ class ChalisaListFragment : Fragment(R.layout.fragment_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val b = FragmentListBinding.bind(view)
         setupToolbar(b.toolbar, "Chalisa Sangrah", "भक्ति")
-        val adapter = ChalisaAdapter { findNavController().navigate(R.id.chalisaDetailFragment, bundleOf("chalisaId" to it.id)) }
+        val adapter = ChalisaAdapter { navigateTo(R.id.chalisaDetailFragment, bundleOf("chalisaId" to it.id)) }
+        b.recycler.animateItemsOnFirstLoad()
         b.recycler.layoutManager = GridLayoutManager(requireContext(), 2)
         b.recycler.adapter = adapter
         collectWhileStarted(viewModel.items) { list ->
@@ -106,6 +108,7 @@ class ChalisaDetailFragment : Fragment(R.layout.fragment_list) {
         b.toolbar.inflateMenu(R.menu.menu_chalisa)
         val adapter = VerseAdapter()
         adapter.textScale = textScale
+        b.recycler.animateItemsOnFirstLoad()
         b.recycler.layoutManager = LinearLayoutManager(requireContext())
         b.recycler.adapter = adapter
 
@@ -128,10 +131,15 @@ class ChalisaDetailFragment : Fragment(R.layout.fragment_list) {
                 b.toolbar.title = chalisa.title
                 b.toolbar.subtitle = chalisa.deity.hindi
             }
-            val empty = result != null && (chalisa == null || chalisa.verses.isEmpty())
+            val empty = result != null && (chalisa == null || chalisa.isEmpty)
             b.emptyText.isVisible = empty
             b.emptyText.setText(R.string.chalisa_empty)
-            adapter.verses = chalisa?.verses.orEmpty()
+            // Card 1: opening doha, card 2: chalisa (chaupai), card 3: closing doha. Empty parts are skipped.
+            adapter.sections = if (chalisa == null) emptyList() else listOf(
+                Section("॥ दोहा ॥", chalisa.doha),
+                Section("॥ चालीसा ॥", chalisa.chalisa),
+                Section("॥ दोहा ॥", chalisa.closingDoha),
+            ).filter { it.lines.isNotEmpty() }
         }
     }
 
@@ -143,22 +151,26 @@ class ChalisaDetailFragment : Fragment(R.layout.fragment_list) {
     private companion object { const val KEY_SCALE = "text_scale" }
 }
 
+private data class Section(val label: String, val lines: List<String>)
+
+/** One card per section; every couplet inside a card is split onto two lines. */
 private class VerseAdapter : RecyclerView.Adapter<VerseAdapter.VH>() {
     class VH(val b: ItemChalisaVerseBinding) : RecyclerView.ViewHolder(b.root)
 
-    var verses: List<String> = emptyList()
+    var sections: List<Section> = emptyList()
         set(value) { if (field != value) { field = value; @Suppress("NotifyDataSetChanged") notifyDataSetChanged() } }
     var textScale = 1f
         set(value) { field = value; notifyItemRangeChanged(0, itemCount) }
 
-    override fun getItemCount() = verses.size
+    override fun getItemCount() = sections.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         VH(ItemChalisaVerseBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.b.index.text = (position + 1).toString()
-        holder.b.verse.text = verses[position].replace("। ", "।\n")
-        holder.b.verse.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f * textScale)
+        val section = sections[position]
+        holder.b.index.text = section.label
+        holder.b.verse.text = section.lines.joinToString("\n\n") { it.replace("। ", "।\n") }
+        holder.b.verse.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f * textScale)
     }
 }

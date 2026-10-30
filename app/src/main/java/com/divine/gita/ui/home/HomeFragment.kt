@@ -8,7 +8,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
 import com.divine.gita.R
 import com.divine.gita.databinding.FragmentHomeBinding
 import com.divine.gita.databinding.ViewCategoryCardBinding
@@ -19,6 +18,7 @@ import com.divine.gita.domain.repository.PreferencesRepository
 import com.divine.gita.domain.usecase.GetDailySlokaUseCase
 import com.divine.gita.ui.common.appViewModels
 import com.divine.gita.ui.common.collectWhileStarted
+import com.divine.gita.ui.common.navigateTo
 import com.divine.gita.ui.common.previewFor
 import com.divine.gita.ui.common.showFavorite
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -78,9 +78,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val b = FragmentHomeBinding.bind(view)
-        val nav = findNavController()
 
-        b.settingsButton.setOnClickListener { nav.navigate(R.id.settingsFragment) }
+        b.settingsButton.setOnClickListener { navigateTo(R.id.settingsFragment) }
         b.dailyFavorite.setOnClickListener { viewModel.toggleFavorite() }
         b.moodRibbon.setOnClickListener { selectTab(R.id.moodFragment) }
 
@@ -95,7 +94,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         b.cardChalisa.bind(
             "Chalisa Sangrah", "15 Deities", "Sing the glory of the divine: Ganesh, Hanuman, Shiv, Lakshmi and more",
             "Open Chalisa", R.drawable.ic_star, R.drawable.bg_card_chalisa, R.color.saffron_deep,
-        ) { nav.navigate(R.id.chalisaListFragment) }
+        ) { navigateTo(R.id.chalisaListFragment) }
         b.cardMood.bind(
             "Gita for Your Mood", "8 Moods", "Krishna's guidance for anxiety, anger, sorrow, confusion and gratitude",
             "Find Solace", R.drawable.ic_mood, R.drawable.bg_card_mood, R.color.mood_anxious,
@@ -121,7 +120,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 b.dailyReference.text = getString(R.string.chapter_verse, s.chapter, s.verse)
                 b.dailyFavorite.showFavorite(s.isFavorite)
                 b.readMoreButton.setOnClickListener {
-                    nav.navigate(R.id.slokaDetailFragment, bundleOf("slokaId" to s.id))
+                    navigateTo(R.id.slokaDetailFragment, bundleOf("slokaId" to s.id))
                 }
             }
         }

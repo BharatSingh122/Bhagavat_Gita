@@ -4,22 +4,22 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/_12sdp"
+    android:layout_marginTop="@dimen/_10sdp"
     app:strokeWidth="0dp">
 
     <FrameLayout
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/_140sdp">
+        android:minHeight="@dimen/_118sdp">
 
         <!-- Large faded watermark icon -->
         <ImageView
             android:id="@+id/watermark"
-            android:layout_width="@dimen/_92sdp"
-            android:layout_height="@dimen/_92sdp"
+            android:layout_width="@dimen/_76sdp"
+            android:layout_height="@dimen/_76sdp"
             android:layout_gravity="top|end"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_margin="@dimen/_9sdp"
             android:alpha="0.12"
             android:importantForAccessibility="no"
             app:tint="@color/white" />
@@ -29,20 +29,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="vertical"
-            android:padding="@dimen/_13sdp">
+            android:padding="@dimen/_11sdp">
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="@dimen/_33sdp"
-                android:layout_height="@dimen/_33sdp"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
                 android:background="@drawable/bg_circle_white"
                 android:importantForAccessibility="no"
-                android:padding="@dimen/_8sdp" />
+                android:padding="@dimen/_7sdp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_6sdp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -50,7 +50,7 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                    android:textAppearance="?attr/textAppearanceTitleLarge"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -58,15 +58,15 @@
                     android:id="@+id/badge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
                     android:background="@drawable/bg_pill"
                     android:backgroundTint="#33FFFFFF"
-                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingStart="@dimen/_7sdp"
                     android:paddingTop="@dimen/_3sdp"
-                    android:paddingEnd="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_7sdp"
                     android:paddingBottom="@dimen/_3sdp"
                     android:textColor="#FFE7C2"
-                    android:textSize="11sp"
+                    android:textSize="@dimen/text_micro"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -74,8 +74,8 @@
                 android:id="@+id/body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_7sdp"
                 android:textColor="#E0FFFFFF" />
 
             <TextView
@@ -85,10 +85,10 @@
                 android:background="@drawable/bg_pill"
                 android:backgroundTint="#F2FFFFFF"
                 android:drawablePadding="@dimen/_3sdp"
-                android:paddingStart="@dimen/_12sdp"
-                android:paddingTop="@dimen/_6sdp"
-                android:paddingEnd="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_6sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_5sdp"
                 android:textStyle="bold"
                 app:drawableEndCompat="@drawable/ic_arrow_forward" />
         </LinearLayout>

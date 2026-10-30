@@ -61,8 +61,10 @@ data class ChalisaEntity(
     /** Deity.key, e.g. "Hanuman". */
     @ColumnInfo(name = "deity") val deity: String,
     @ColumnInfo(name = "title") val title: String,
-    /** Stored as a JSON array via [com.divine.gita.data.local.Converters]. */
-    @ColumnInfo(name = "verses") val verses: List<String>,
+    /** The three lists below are stored as JSON arrays via [com.divine.gita.data.local.Converters]. */
+    @ColumnInfo(name = "doha") val doha: List<String>,
+    @ColumnInfo(name = "chalisa") val chalisa: List<String>,
+    @ColumnInfo(name = "closing_doha") val closingDoha: List<String>,
 )
 
 @Entity(tableName = "moods")

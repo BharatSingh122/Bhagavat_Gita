@@ -31,7 +31,8 @@ fun QuoteEntity.toDomain() = Quote(
 )
 
 fun ChalisaEntity.toDomain() = Chalisa(
-    id = id, deity = Deity.fromKey(deity), title = title, verses = verses,
+    id = id, deity = Deity.fromKey(deity), title = title,
+    doha = doha, chalisa = chalisa, closingDoha = closingDoha,
 )
 
 fun MoodWithCount.toDomain() = Mood(key = key, title = title, subtitle = subtitle, verseCount = verseCount)

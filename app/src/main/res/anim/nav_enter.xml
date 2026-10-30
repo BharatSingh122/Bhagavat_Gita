@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Forward navigation: new screen glides in from the right (Material shared-axis X style) -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/fast_out_slow_in"
+    android:shareInterpolator="true">
+    <translate android:duration="320" android:fromXDelta="12%" android:toXDelta="0%" />
+    <alpha android:duration="220" android:startOffset="60" android:fromAlpha="0" android:toAlpha="1" />
+</set>

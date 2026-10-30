@@ -36,8 +36,12 @@ data class Chalisa(
     val id: Int,
     val deity: Deity,
     val title: String,
-    val verses: List<String>,
-)
+    val doha: List<String>,
+    val chalisa: List<String>,
+    val closingDoha: List<String>,
+) {
+    val isEmpty: Boolean get() = doha.isEmpty() && chalisa.isEmpty() && closingDoha.isEmpty()
+}
 
 data class Mood(
     val key: String,

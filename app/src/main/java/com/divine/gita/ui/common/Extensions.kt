@@ -3,7 +3,10 @@ package com.divine.gita.ui.common
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
+import androidx.annotation.IdRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -15,7 +18,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
+import androidx.recyclerview.widget.RecyclerView
 import com.divine.gita.GitaApplication
 import com.divine.gita.R
 import com.divine.gita.di.AppContainer
@@ -57,6 +63,35 @@ fun Fragment.setupToolbar(toolbar: MaterialToolbar, title: CharSequence, subtitl
     } else {
         toolbar.navigationIcon = null
     }
+}
+
+/** Slide + fade used for every forward screen change; back/up plays the reverse automatically. */
+val screenNavOptions: NavOptions = navOptions {
+    anim {
+        enter = R.anim.nav_enter
+        exit = R.anim.nav_exit
+        popEnter = R.anim.nav_pop_enter
+        popExit = R.anim.nav_pop_exit
+    }
+}
+
+/** Navigates with [screenNavOptions]; ignores repeat taps while a transition is already running. */
+fun Fragment.navigateTo(@IdRes destination: Int, args: Bundle? = null) {
+    if (!isResumed) return
+    findNavController().navigate(destination, args, screenNavOptions)
+}
+
+/** Lets the cards rise in once, the first time the list has items (data usually arrives after the first layout). */
+fun RecyclerView.animateItemsOnFirstLoad() {
+    addOnChildAttachStateChangeListener(object : RecyclerView.OnChildAttachStateChangeListener {
+        override fun onChildViewAttachedToWindow(view: View) {
+            removeOnChildAttachStateChangeListener(this)
+            layoutAnimation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_list_enter)
+            scheduleLayoutAnimation()
+        }
+
+        override fun onChildViewDetachedFromWindow(view: View) = Unit
+    })
 }
 
 fun MaterialButton.showFavorite(isFavorite: Boolean) {

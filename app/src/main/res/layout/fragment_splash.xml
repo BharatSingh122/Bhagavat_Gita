@@ -6,23 +6,23 @@
     android:background="@drawable/bg_splash"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="@dimen/_27sdp">
+    android:padding="@dimen/_22sdp">
 
     <TextView
         android:id="@+id/om"
-        android:layout_width="@dimen/_133sdp"
-        android:layout_height="@dimen/_133sdp"
+        android:layout_width="@dimen/_104sdp"
+        android:layout_height="@dimen/_104sdp"
         android:background="@drawable/bg_om"
         android:gravity="center"
         android:text="ॐ"
         android:textColor="@color/white"
-        android:textSize="54sp"
+        android:textSize="@dimen/text_om_large"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_18sdp"
         android:text="श्रीमद्भगवद्गीता"
         android:textAppearance="?attr/textAppearanceHeadlineSmall"
         android:textColor="@color/sanskrit" />
@@ -36,24 +36,24 @@
         android:textStyle="bold" />
 
     <View
-        android:layout_width="@dimen/_53sdp"
+        android:layout_width="@dimen/_44sdp"
         android:layout_height="@dimen/_3sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_9sdp"
         android:background="@drawable/bg_gold_line" />
 
     <TextView
         style="@style/Text.Body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_9sdp"
         android:gravity="center"
         android:text="योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress"
-        android:layout_width="@dimen/_117sdp"
+        android:layout_width="@dimen/_100sdp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_26sdp"
         android:indeterminate="true"
         app:indicatorColor="@color/saffron"
         app:trackColor="@color/gold_light" />
@@ -62,7 +62,7 @@
         android:id="@+id/errorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_18sdp"
         android:gravity="center"
         android:textColor="@color/favorite"
         android:visibility="gone" />
@@ -72,7 +72,7 @@
         style="@style/Widget.DivineGita.PillButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_9sdp"
         android:text="@string/try_again"
         android:visibility="gone" />
 </LinearLayout>

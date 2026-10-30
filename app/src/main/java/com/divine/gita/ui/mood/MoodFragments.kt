@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,8 +26,10 @@ import com.divine.gita.domain.repository.GitaRepository
 import com.divine.gita.domain.repository.MoodRepository
 import com.divine.gita.domain.repository.PreferencesRepository
 import com.divine.gita.ui.common.SlokaAdapter
+import com.divine.gita.ui.common.animateItemsOnFirstLoad
 import com.divine.gita.ui.common.appViewModels
 import com.divine.gita.ui.common.collectWhileStarted
+import com.divine.gita.ui.common.navigateTo
 import com.divine.gita.ui.common.setupToolbar
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -64,7 +65,8 @@ class MoodFragment : Fragment(R.layout.fragment_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val b = FragmentListBinding.bind(view)
         setupToolbar(b.toolbar, "Gita for Your Mood", "Manah Prasada", showBack = false)
-        val adapter = MoodAdapter { findNavController().navigate(R.id.moodVersesFragment, bundleOf("moodKey" to it.key)) }
+        val adapter = MoodAdapter { navigateTo(R.id.moodVersesFragment, bundleOf("moodKey" to it.key)) }
+        b.recycler.animateItemsOnFirstLoad()
         b.recycler.layoutManager = GridLayoutManager(requireContext(), 2).apply {
             // Header spans both columns
             spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
@@ -156,9 +158,10 @@ class MoodVersesFragment : Fragment(R.layout.fragment_list) {
         val b = FragmentListBinding.bind(view)
         setupToolbar(b.toolbar, "Mood", "Krishna's guidance")
         val adapter = SlokaAdapter(
-            onClick = { findNavController().navigate(R.id.slokaDetailFragment, bundleOf("slokaId" to it.id)) },
+            onClick = { navigateTo(R.id.slokaDetailFragment, bundleOf("slokaId" to it.id)) },
             onToggleFavorite = viewModel::toggleFavorite,
         )
+        b.recycler.animateItemsOnFirstLoad()
         b.recycler.layoutManager = LinearLayoutManager(requireContext())
         b.recycler.adapter = adapter
         collectWhileStarted(viewModel.state) { s ->

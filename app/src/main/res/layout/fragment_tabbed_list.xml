@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:padding="@dimen/_10sdp" />
+            android:padding="@dimen/_9sdp" />
 
         <TextView
             android:id="@+id/emptyText"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:padding="@dimen/_27sdp"
+            android:padding="@dimen/_22sdp"
             android:visibility="gone" />
     </FrameLayout>
 </LinearLayout>
